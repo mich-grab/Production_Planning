@@ -6,14 +6,7 @@
 }
 body {
     font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
     margin:0;
-
 }
 
 .container {
@@ -51,33 +44,51 @@ body {
   .container__planner__left{
       background-color: #616161;
       width: 200px;
-      height: 100%;
   }
 
   .container__planner__right{
-      width: 100%;
+    width: 50000px;
+    height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
+      display: inline-block;
       background-color: #cacaca;
   }
 
     .planner__right__nest{
-        position: relative;
+        display: inline-block;
+        width: 50000px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         background-color: #8b8b8b;
         border: 1px solid #252525;
         height: 100px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
+
     }
 
     .process {
+
         width: 200px;
+        height: 100px;
         background-color: #c8ff00;
         border: 1px solid #252525;
+    }
+
+    .red{
+        background-color: #990000;
+    }
+    .blue{
+        background-color: #005499;
+    }
+    .yellow{
+        background-color: #998200;
+    }
+    .green{
+        background-color: #2b9900;
     }
 
     .draggable{
