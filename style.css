@@ -1,1 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+*{
+    box-sizing: border-box;
+
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    margin:0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #adadad;
+    position: absolute; 
+}
+
+  .container__nav {
+      background-color: #252525;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+  }
+
+    .container__nav__items{
+        font-size: 1em;
+        color: #ffffff;
+        width: 70%;
+    }
+
+      .nav__list{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+      }
+
+  .container__planner{
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+  }
+
+  .container__planner__left{
+      background-color: #616161;
+      width: 200px;
+      padding: 5px;
+  }
+  
+  .toolList {
+      list-style-type: none;
+      margin: 5px;
+      padding: 0px;
+      cursor: pointer;
+  }
+    .toolList > li{
+        padding: 2px;
+        margin: 2px;
+        background-color: #8b8b8b;
+    }
+    .toolList >li:hover{
+        background-color: #adadad;
+    }
+
+  .container__planner__right{
+    width: 50000px;
+    height: 400px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+      position: relative;
+      display: inline-block;
+      background-color: #cacaca;
+  }
+
+    .planner__right__nest{
+        display: inline-block;
+        width: 50000px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        background-color: #8b8b8b;
+        border: 1px solid #252525;
+        height: 100px;
+
+    }
+
+    .process {
+
+        width: 200px;
+        height: 100px;
+        background-color: #c8ff00;
+        border: 1px solid #252525;
+    }
+
+    .red{
+        background-color: #990000;
+    }
+    .blue{
+        background-color: #005499;
+    }
+    .yellow{
+        background-color: #998200;
+    }
+    .green{
+        background-color: #2b9900;
+    }
+
+    .draggable{
+        cursor: move;
+    }
+
+    .draggable.dragging{
+        opacity: 0.5;
+    }
