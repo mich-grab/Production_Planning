@@ -1,0 +1,32 @@
+{ "toolList": [
+    {
+        "id": "0001", 
+        "toolNumber": "F_2022_001_01",
+        "toolName": "X534_BUMPER",
+        "guideList": [
+            {"G_U1_Z1": "1"},
+            {"G_U2_Z1": "1"},
+            {"S_U3_Z1": "1"}
+        ]
+    },
+    {
+        "id": "0002", 
+        "toolNumber": "F_2022_002_01",
+        "toolName": "SHROUD",
+        "guideList": [
+            {"G_U1_Z1": "1"},
+            {"G_U2_Z1": "1"},
+            {"S_U3_Z1": "1"}
+        ]
+    },
+    {
+        "id": "0003", 
+        "toolNumber": "F_2022_003_01",
+        "toolName": "P33_SEATS",
+        "guideList": [
+            {"G_U1_Z1": "1"},
+            {"G_U2_Z1": "1"},
+            {"S_U3_Z1": "1"}
+        ]
+    }
+]}
