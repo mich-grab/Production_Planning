@@ -1,5 +1,9 @@
 const draggables = document.querySelectorAll('.draggable')
 const nests = document.querySelectorAll('.planner__right__nest')
+import toolDB from './database.json' assert {type: 'json'}
+
+console.log(toolDB.toolList);
+
 
 
 draggables.forEach(draggable => {
