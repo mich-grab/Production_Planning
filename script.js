@@ -1,8 +1,27 @@
-const draggables = document.querySelectorAll('.draggable')
-const nests = document.querySelectorAll('.planner__right__nest')
 import toolDB from './database.json' assert {type: 'json'}
 
-console.log(toolDB.toolList);
+const draggables = document.querySelectorAll('.draggable')
+const nests = document.querySelectorAll('.planner__right__nest')
+const toolList = document.querySelector('.toolList')
+/* const lis = [...document.querySelector('.toolList').getElementsByTagName('li')] */
+
+
+
+function createListOfTools() {
+    for (let i = 0; i < toolDB.toolList.length; i++) {
+
+        const li = document.createElement('li');
+        toolList.appendChild(li)
+        li.innerHTML = `${toolDB.toolList[i].toolNumber} </br> ${toolDB.toolList[i].toolName}`
+    }
+}
+createListOfTools()
+
+
+
+
+
+
 
 
 
