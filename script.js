@@ -12,7 +12,7 @@ function createListOfTools() {
 
         const li = document.createElement('li');
         toolList.appendChild(li)
-        li.innerHTML = `${toolDB.toolList[i].toolNumber} </br> ${toolDB.toolList[i].toolName}`
+        li.innerHTML = `${toolDB.toolList[i].toolNumber}_${toolDB.toolList[i].toolName}`
     }
 }
 createListOfTools()
