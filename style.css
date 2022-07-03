@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 :root {
-    --primary-color:#252525;
-    --secondary-color: #616161;
+    --primary-color:#343a40;
+    --secondary-color: #f4f6f9;
+    --tertiary-color: #007bff;
 }
 *{
     box-sizing: border-box;
@@ -10,7 +11,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
     margin:0;
 }
 
@@ -23,15 +24,37 @@ body {
 
   .container__nav {
       background-color: var(--primary-color);
-      height: 100px;
+      height: 50px;
       display: flex;
       flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
   }
 
-    .container__nav__items{
-        font-size: 1em;
+  .container__nav__logo{
+      width: 400px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+  }
+
+    .logo{
+        padding: 5px;
+      color: var(--secondary-color);
+    }
+    .logo + p{
         color: var(--secondary-color);
-        width: 70%;
+        font-size: 1.2rem;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .container__nav__items{
+        color: var(--secondary-color);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
     }
 
       .nav__list{
@@ -47,28 +70,36 @@ body {
   }
 
   .container__planner__left{
-      background-color: #616161;
-      width: 200px;
+      background-color: var(--secondary-color);
       padding: 5px;
+      width: 200px;
+
   }
   
   .toolList {
       list-style-type: none;
+      width: 100%;
       margin: 5px;
       padding: 0px;
       cursor: pointer;
   }
     .toolList > li{
-        padding: 2px;
-        margin: 2px;
-        background-color: #8b8b8b;
+        padding: 5px;
+        margin: 5px;
+        font-size: 0.8rem;
+
+
+        background-color: var(--secondary-color);
         word-wrap: break-word;
     }
     .toolList >li:hover{
-        background-color: #adadad;
+        background-color: #c7c7c7;
+        border-radius: 5px;
     }
 
   .container__planner__right{
+      margin: 10px;
+      box-shadow: 0 0 5px var(--primary-color);
     width: 50000px;
     height: 400px;
     overflow-x: scroll;
