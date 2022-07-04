@@ -3,22 +3,43 @@ import toolDB from './database.json' assert {type: 'json'}
 const draggables = document.querySelectorAll('.draggable')
 const nests = document.querySelectorAll('.planner__right__nest')
 const toolList = document.querySelector('.toolList')
-/* const lis = [...document.querySelector('.toolList').getElementsByTagName('li')] */
-
+let tools = []
+let toolListArray = []
 
 
 function createListOfTools() {
+    toolListArray = []
     for (let i = 0; i < toolDB.toolList.length; i++) {
 
-        const li = document.createElement('li');
+        const li = document.createElement('li')
+        li.setAttribute('class', 'tool')
         toolList.appendChild(li)
         li.innerHTML = `${toolDB.toolList[i].toolNumber}_${toolDB.toolList[i].toolName}`
+        toolListArray[i] = `${toolDB.toolList[i].toolNumber}_${toolDB.toolList[i].toolName}`
+
+        tools = document.querySelectorAll('.tool')
     }
 }
 createListOfTools()
 
+/* console.log(toolListArray)
+console.log(toolList)
+let newArray = [...toolList.children]
+console.log(toolList)
+console.log(newArray)
+ */
+
+tools.forEach(tool => {
+
+    tool.addEventListener('click', () => {
+        tools.forEach(tool2 => {
+            tool2.classList.remove('active')
+        })
+        tool.classList.add('active')
+    })
 
 
+})
 
 
 
