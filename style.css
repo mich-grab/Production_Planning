@@ -105,12 +105,17 @@ body {
       background-color: var(--tertiary-color);
       color: var(--secondary-color);
     }
-    .not_ctive{
+    .not_active{
       background-color: var(--secondary-color);
     }
-  
+
 
   .container__planner__right{
+    display: flex;
+    flex-direction: column;
+  }
+
+    .planner__right__top{
       margin: 10px;
       box-shadow: 0 0 5px var(--primary-color);
       width: 50000px;
@@ -121,45 +126,51 @@ body {
       position: relative;
       display: inline-block;
       background-color: var(--secondary-color);
+    }
+
+      .planner__right__nest{
+        display: inline-block;
+        width: 50000px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        background-color: var(--secondary-color);
+        border: 1px solid var(--primary-color);
+        height: 100px;
+  
+      }
+
+      .process {
+  
+        width: 200px;
+        height: 100px;
+        background-color: #c8ff00;
+        border: 1px solid var(--primary-color);
+      }
+
+      .red{
+        background-color: #990000;
+    }
+      .blue{
+        background-color: #005499;
+      }
+      .yellow{
+        background-color: #998200;
+      }
+      .green{
+        background-color: #2b9900;
+      }
+
+      .draggable{
+        cursor: move;
+      }
+
+      .draggable.dragging{
+        opacity: 0.5;
+      }
+
+  .planner__right__bottom {
+    height: 300px;
+    width: 100vw;
+    background-color: #2b9900;
   }
-
-    .planner__right__nest{
-      display: inline-block;
-      width: 50000px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      background-color: var(--secondary-color);
-      border: 1px solid var(--primary-color);
-      height: 100px;
-
-    }
-
-    .process {
-
-      width: 200px;
-      height: 100px;
-      background-color: #c8ff00;
-      border: 1px solid var(--primary-color);
-    }
-
-    .red{
-      background-color: #990000;
-    }
-    .blue{
-      background-color: #005499;
-    }
-    .yellow{
-      background-color: #998200;
-    }
-    .green{
-      background-color: #2b9900;
-    }
-
-    .draggable{
-      cursor: move;
-    }
-
-    .draggable.dragging{
-      opacity: 0.5;
-    }
