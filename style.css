@@ -12,6 +12,7 @@
   box-sizing: border-box;
 /*   outline: 1px solid limegreen !important;
   background: rgb(0 100 0 / 0.1) !important; */
+
 }
 
 body {
@@ -113,21 +114,27 @@ body {
   .container__planner__right{
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: hidden; 
   }
 
     .planner__right__top{
+      height: 500px;
+      overflow-x: scroll;
+
+    }
+
+    .planner__right__nest__container{
       margin: 10px;
       box-shadow: 0 0 5px var(--primary-color);
       width: 50000px;
       height: 400px;
-      overflow-x: scroll;
-      overflow-y: hidden;
+
       white-space: nowrap;
       position: relative;
       display: inline-block;
       background-color: var(--secondary-color);
     }
-
       .planner__right__nest{
         display: inline-block;
         width: 50000px;
@@ -171,6 +178,11 @@ body {
 
   .planner__right__bottom {
     height: 300px;
-    width: 100vw;
+    width: calc(100vw - 200px);
     background-color: #2b9900;
   }
+
+    .planner__right__bottom__info{
+      display: flex;
+      flex-direction: row;
+    }
