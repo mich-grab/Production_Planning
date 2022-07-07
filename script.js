@@ -7,6 +7,7 @@ const toolList = document.querySelector('.toolList')
 const info_toolIDs = document.getElementById('tool_id')
 const info_toolNames = document.getElementById('tool_name')
 const info_toolNumbers = document.getElementById('tool_number')
+const info_toolGuidelist = document.getElementById('tool_guideList')
 
 let tools = []
 let toolListArray = []
@@ -40,6 +41,7 @@ function fillToolInfo(toolFullName) {
             info_toolIDs.innerText = toolDB.toolList[i].id
             info_toolNames.innerText = toolDB.toolList[i].toolName
             info_toolNumbers.innerText = toolDB.toolList[i].toolNumber
+            info_toolGuidelist.innerText = toolDB.toolList[i].guideList
 
         }
 
