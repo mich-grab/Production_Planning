@@ -179,7 +179,9 @@ body {
   .planner__right__bottom {
     height: 300px;
     width: calc(100vw - 200px);
-    background-color: #2b9900;
+    padding: 20px;
+    margin: 20px;
+    background-color: var(--secondary-color);
   }
 
     .planner__right__bottom__info{
