@@ -176,15 +176,23 @@ body {
         opacity: 0.5;
       }
 
-  .planner__right__bottom {
-    height: 300px;
+  .planner__right__center {
+    height: 150px;
     width: calc(100vw - 200px);
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
     background-color: var(--secondary-color);
   }
 
-    .planner__right__bottom__info{
+    .planner__right__center__info{
       display: flex;
       flex-direction: row;
     }
+
+  .planner__right__bottom {
+    height: 300px;
+    width: calc(100vw - 200px);
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--primary-color);
+  }
