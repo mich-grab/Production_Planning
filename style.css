@@ -195,4 +195,9 @@ body {
     padding: 10px;
     margin: 10px;
     background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: start;
   }
