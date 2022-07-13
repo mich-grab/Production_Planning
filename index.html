@@ -1,124 +1,101 @@
-import toolDB from './database.json' assert {type: 'json'}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="favicon" type="image/png" sizes="64x64" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Production Planning</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container__nav">
+            <div class="container__nav__logo">
+                <div class="logo"><span class="material-symbols-outlined">
+                    full_stacked_bar_chart
+                    </span>
+                </div>
+                <p>Planowanie produkcji</p>
+            </div>
+            
+            <div class="container__nav__items">
+            <span class="material-symbols-outlined">
+                settings
+                </span>
+            <span class="material-symbols-outlined">
+                logout
+                </span>
+            </div>
+        </div>
+        <div class="container__planner">
+            <div class="container__planner__left">
+                <ul class="toolList">
 
-let draggables = document.querySelectorAll('.draggable')
-const nests = document.querySelectorAll('.planner__right__nest')
-const toolList = document.querySelector('.toolList')
+                </ul>
+            </div>
+            <div class="container__planner__right">
+                <div class="planner__right__top">
 
-const info_toolIDs = document.getElementById('tool_id')
-const info_toolNames = document.getElementById('tool_name')
-const info_toolNumbers = document.getElementById('tool_number')
-const info_toolGuidelist = document.getElementById('tool_guideList')
-const info_plannerRightBottom = document.querySelector('.planner__right__bottom')
+                    <div class="planner__right__nest__container">
 
-let tools = []
-let toolListArray = []
+                        <div class="planner__right__nest" id="next01">
+                            <div class="process draggable red" id="form_01"        draggable="true" name="guide">1</div>
+                            <div class="process draggable blue" id="form_02"       draggable="true" name="guide">2</div>
+                            <div class="process draggable green" id="form_03"      draggable="true" name="guide">3</div>
+                            <div class="process draggable yellow" id="form_04"     draggable="true" name="guide">4</div>
+                            <div class="process draggable red" id="form_05"        draggable="true" name="guide">5</div>
+                            <div class="process draggable" id="form_06"        draggable="true" name="guide">6</div>
+                            <div class="process draggable red" id="form_07"        draggable="true" name="guide">7</div>
+                            <div class="process draggable green" id="form_08"     draggable="true" name="guide">8</div>
+                            <div class="process draggable green" id="form_09" draggable="true" name="guide">9</div>
+                            <div class="process draggable red" id="form_10"       draggable="true" name="guide">10</div>
+                            <div class="process draggable blue" id="form_11" draggable="true" name="guide">11</div>
+                            <div class="process draggable red" id="form_12"       draggable="true" name="guide">12</div>
+                            <div class="process draggable yellow" id="form_13"    draggable="true" name="guide">13</div>
+                            <div class="process draggable red" id="form_134"       draggable="true" name="guide">14</div>
+                            <div class="process draggable blue" id="form_15"     draggable="true" name="guide">15</div>
+                        </div>
+                        <div class="planner__right__nest" id="next02"></div>
+                        <div class="planner__right__nest" id="next03"></div>
 
+                    </div>
 
-function createListOfTools() {
+                </div>
 
-    for (let i = 0; i < toolDB.toolList.length; i++) {
+            <div class="planner__right__center">
+                <div class="planner__right__center__info">
+                    <div class="planner__right__center__info_left">
+                           <p> ID:  </p> 
+                           <p> Tool Name:  </p> 
+                           <p> Tool Number:  </p> 
+                           <p> Przewodniki:  </p> 
+                    </div>
 
-        const li = document.createElement('li')
-        li.setAttribute('class', 'tool')
-        toolList.appendChild(li)
-        li.innerHTML = `${toolDB.toolList[i].toolNumber}_${toolDB.toolList[i].toolName}`
-        toolListArray[i] = `${toolDB.toolList[i].toolNumber}_${toolDB.toolList[i].toolName}`
+                    <div class="planner__right__center__info__right">
+                        <p id="tool_id"> tool ID </p> 
+                        <p id="tool_name"> tool name </p> 
+                        <p id="tool_number"> tool number </p> 
+                        <p id="tool_guideList"> Guide List </p> 
 
-        tools = document.querySelectorAll('.tool')
-    }
-}
-createListOfTools()
+                    </div>
+                </div>
+            </div>
+            <div class="planner__right__bottom planner__right__nest">
+                <div class="process draggable blue" id="form_02"       draggable="true" name="guide">2</div>
+            </div>
 
-/* console.log(toolListArray)
-console.log(toolList)
-let newArray = [...toolList.children]
-console.log(toolList)
-console.log(newArray)
- */
-
-
-tools.forEach(tool => {
-
-    tool.addEventListener('click', () => {
-        tools.forEach(tool2 => {
-            tool2.classList.remove('active')
-        })
-        tool.classList.add('active')
-        fillToolInfo(tool.innerText)
-
-    })
-
-
-})
-
-function fillToolInfo(toolFullName) {
-    for (let i = 0; i < toolDB.toolList.length; i++) {
-        if (toolFullName == toolListArray[i]) {
-            info_toolIDs.innerText = toolDB.toolList[i].id
-            info_toolNames.innerText = toolDB.toolList[i].toolName
-            info_toolNumbers.innerText = toolDB.toolList[i].toolNumber
-            info_toolGuidelist.innerText = toolDB.toolList[i].guideList
-            createGuides(i)
-        }
-    }
-}
-
-
-
-function createGuides(number) {
-
-    for (let i = 0; i < toolDB.toolList[number].guideList.length; i++) {
-        let newDiv = document.createElement('div')
-        newDiv.innerHTML = `${toolDB.toolList[number].guideList[i]}`
-        newDiv.classList.add('process', 'draggable', 'red')
-        newDiv.setAttribute('draggable', true)
-        info_plannerRightBottom.appendChild(newDiv)
-    }
-    draggables = document.querySelectorAll('.draggable')
-
-}
-
-
-
-
-
-
-draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', () => {
-        draggable.classList.add('dragging')
-    })
-    draggable.addEventListener('dragend', () => {
-        draggable.classList.remove('dragging')
-    })
-})
-
-nests.forEach(nest => {
-    nest.addEventListener('dragover', e => {
-        e.preventDefault()
-        const afterElement = getDragAfterElement(nest, e.clientX)
-        const draggable = document.querySelector('.dragging')
-
-        if (afterElement == null) {
-            nest.appendChild(draggable)
-        } else {
-            nest.insertBefore(draggable, afterElement)
-        }
+            </div>
+        </div>
 
 
-    })
-})
 
-function getDragAfterElement(nest, x) {
-    const draggableElements = [...nest.querySelectorAll('.draggable:not(.dragging)')]
 
-    return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect()
-        const offset = x - box.left - box.width / 2
 
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child }
-        } else {
-            return closest
-        }
-    }, { offset: Number.NEGATIVE_INFINITY }).element
-}
+
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
