@@ -1,6 +1,6 @@
 import toolDB from './database.json' assert {type: 'json'}
 
-const draggables = document.querySelectorAll('.draggable')
+let draggables = document.getElementsByName('guide')
 const nests = document.querySelectorAll('.planner__right__nest')
 const toolList = document.querySelector('.toolList')
 
@@ -8,6 +8,7 @@ const info_toolIDs = document.getElementById('tool_id')
 const info_toolNames = document.getElementById('tool_name')
 const info_toolNumbers = document.getElementById('tool_number')
 const info_toolGuidelist = document.getElementById('tool_guideList')
+const info_plannerRightBottom = document.querySelector('.planner__right__bottom')
 
 let tools = []
 let toolListArray = []
@@ -35,18 +36,6 @@ console.log(toolList)
 console.log(newArray)
  */
 
-function fillToolInfo(toolFullName) {
-    for (let i = 0; i < toolDB.toolList.length; i++) {
-        if (toolFullName == toolListArray[i]) {
-            info_toolIDs.innerText = toolDB.toolList[i].id
-            info_toolNames.innerText = toolDB.toolList[i].toolName
-            info_toolNumbers.innerText = toolDB.toolList[i].toolNumber
-            info_toolGuidelist.innerText = toolDB.toolList[i].guideList
-
-        }
-
-    }
-}
 
 tools.forEach(tool => {
 
@@ -62,9 +51,38 @@ tools.forEach(tool => {
 
 })
 
+function fillToolInfo(toolFullName) {
+    for (let i = 0; i < toolDB.toolList.length; i++) {
+        if (toolFullName == toolListArray[i]) {
+            info_toolIDs.innerText = toolDB.toolList[i].id
+            info_toolNames.innerText = toolDB.toolList[i].toolName
+            info_toolNumbers.innerText = toolDB.toolList[i].toolNumber
+            info_toolGuidelist.innerText = toolDB.toolList[i].guideList
+            createGuides(i)
+        }
+    }
+}
 
 
 
+function createGuides(number) {
+
+    for (let i = 0; i < toolDB.toolList[number].guideList.length; i++) {
+        let newDiv = document.createElement('div')
+        newDiv.innerHTML = `${toolDB.toolList[number].guideList[i]}`
+        newDiv.classList.add('process', 'draggable', 'red')
+        newDiv.setAttribute('draggable', true)
+        newDiv.name = 'guide'
+        info_plannerRightBottom.appendChild(newDiv)
+        draggables.append(newDiv)
+    }
+    console.log(draggables)
+
+}
+
+
+
+console.log(draggables)
 
 
 draggables.forEach(draggable => {
