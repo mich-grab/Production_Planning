@@ -13,7 +13,6 @@ const info_plannerRightBottom = document.querySelector('.planner__right__bottom'
 let tools = []
 let toolListArray = []
 
-
 function createListOfTools() {
 
     for (let i = 0; i < toolDB.toolList.length; i++) {
@@ -57,7 +56,14 @@ function fillToolInfo(toolFullName) {
             info_toolIDs.innerText = toolDB.toolList[i].id
             info_toolNames.innerText = toolDB.toolList[i].toolName
             info_toolNumbers.innerText = toolDB.toolList[i].toolNumber
-            info_toolGuidelist.innerText = toolDB.toolList[i].guideList
+            let guides_list = ''
+            for (let j = 0; j < toolDB.toolList[i].guideList.length; j++) {
+                console.log(guides_list)
+                guides_list += toolDB.toolList[i].guideList[j].guide
+                console.log(guides_list)
+            }
+            info_toolGuidelist.innerText = guides_list
+
             createGuides(i)
         }
     }
@@ -76,13 +82,13 @@ function createGuides(number) {
         info_plannerRightBottom.appendChild(newDiv)
         draggables.append(newDiv)
     }
-    console.log(draggables)
+    /* console.log(draggables) */
 
 }
 
 
 
-console.log(draggables)
+/* console.log(draggables) */
 
 
 draggables.forEach(draggable => {
