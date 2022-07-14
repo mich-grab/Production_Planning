@@ -4,9 +4,9 @@
         "toolNumber": "F_2022_001_01",
         "toolName": "X534_BUMPER",
         "guideList": [
-            {"1": "G_U1_Z1"},
-            {"2": "G_U2_Z1"},
-            {"3": "S_U3_Z1"}
+            {"guide": "G_U1_Z1"},
+            {"guide": "G_U2_Z1"},
+            {"guide": "S_U3_Z1"}
         ]
     },
     {
@@ -14,9 +14,9 @@
         "toolNumber": "F_2022_002_01",
         "toolName": "SHROUD",
         "guideList": [
-            {"1": "G_U1_Z1"},
-            {"2": "G_U2_Z1"},
-            {"3": "S_U3_Z1"}
+            {"guide": "G_U4_Z1"},
+            {"guide": "G_U6_Z1"},
+            {"guide": "S_U7_Z1"}
         ]
     },
     {
@@ -24,9 +24,9 @@
         "toolNumber": "F_2022_003_01",
         "toolName": "P33_SEATS",
         "guideList": [
-            {"1": "G_U1_Z1"},
-            {"2": "G_U2_Z1"},
-            {"3": "S_U3_Z1"}
+            {"guide": "G_U8_Z1"},
+            {"guide": "G_U9_Z1"},
+            {"guide": "S_U11_Z1"}
         ]
     },
     {
@@ -34,9 +34,9 @@
         "toolNumber": "F_2022_004_01",
         "toolName": "FOOTWELL",
         "guideList": [
-            {"1": "G_U1_Z1"},
-            {"2": "G_U2_Z1"},
-            {"3": "S_U3_Z1"}
+            {"guide": "G_U2_Z1"},
+            {"guide": "G_U7_Z1"},
+            {"guide": "S_U4_Z1"}
         ]
     },
     {
@@ -44,9 +44,9 @@
         "toolNumber": "F_2022_005_01",
         "toolName": "MALO",
         "guideList": [
-            {"1": "G_U1_Z1"},
-            {"2": "G_U2_Z1"},
-            {"3": "S_U3_Z1"}
+            {"guide": "G_U2_Z1"},
+            {"guide": "G_U1_Z1"},
+            {"guide": "S_U1_Z1"}
         ]
     },
     {
@@ -54,9 +54,9 @@
         "toolNumber": "F_2022_006_01",
         "toolName": "X590",
         "guideList": [
-            {"1": "G_U1_Z1"},
-            {"2": "G_U2_Z1"},
-            {"3": "S_U3_Z1"}
+            {"guide": "G_U1_Z1"},
+            {"guide": "G_U2_Z1"},
+            {"guide": "S_U3_Z1"}
         ]
     }
 ]}
