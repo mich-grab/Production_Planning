@@ -3,6 +3,7 @@
         "id": "0001", 
         "toolNumber": "F_2022_001_01",
         "toolName": "X534_BUMPER",
+        "toolcolor": "#264653",
         "guideList": [
             {"guide": "G_U1_Z1"},
             {"guide": "G_U2_Z1"},
@@ -13,6 +14,7 @@
         "id": "0002", 
         "toolNumber": "F_2022_002_01",
         "toolName": "SHROUD",
+        "toolcolor": "#2a9d8f",
         "guideList": [
             {"guide": "G_U4_Z1"},
             {"guide": "G_U6_Z1"},
@@ -23,6 +25,7 @@
         "id": "0003", 
         "toolNumber": "F_2022_003_01",
         "toolName": "P33_SEATS",
+        "toolcolor": "#e9c46a",
         "guideList": [
             {"guide": "G_U8_Z1"},
             {"guide": "G_U9_Z1"},
@@ -33,6 +36,7 @@
         "id": "0004", 
         "toolNumber": "F_2022_004_01",
         "toolName": "FOOTWELL",
+        "toolcolor": "#f4a261",
         "guideList": [
             {"guide": "G_U2_Z1"},
             {"guide": "G_U7_Z1"},
@@ -43,6 +47,7 @@
         "id": "0005", 
         "toolNumber": "F_2022_005_01",
         "toolName": "MALO",
+        "toolcolor": "#e76f51",
         "guideList": [
             {"guide": "G_U2_Z1"},
             {"guide": "G_U1_Z1"},
@@ -53,6 +58,7 @@
         "id": "0006", 
         "toolNumber": "F_2022_006_01",
         "toolName": "X590",
+        "toolcolor": "#d4a373",
         "guideList": [
             {"guide": "G_U1_Z1"},
             {"guide": "G_U2_Z1"},
