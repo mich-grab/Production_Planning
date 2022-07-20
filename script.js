@@ -1,8 +1,12 @@
 import toolDB from './database.json' assert {type: 'json'}
 
-/* const draggables = document.querySelectorAll('.draggable') */
-let draggables = document.getElementsByClassName('draggable');
-const nests = document.querySelectorAll('.planner__right__nest')
+let draggables = document.getElementsByName('guide')
+const nests = document.getElementsByClassName('planner__right__nest')
+/* const draggables = document.querySelectorAll('.draggable')
+const nests = document.querySelectorAll('.planner__right__nest') */
+/* let draggables = document.getElementsByClassName('draggable');
+let nests = document.getElementsByClassName('planner__right__nest') */
+
 const toolList = document.querySelector('.toolList')
 
 const info_toolIDs = document.getElementById('tool_id')
@@ -36,7 +40,6 @@ console.log(toolList)
 console.log(newArray)
  */
 
-console.log(parent)
 
 
 
@@ -80,37 +83,44 @@ function createGuides(number) {
         newDiv.innerHTML = `${toolDB.toolList[number].guideList[i]}`
         newDiv.classList.add('process', 'draggable', 'red')
         newDiv.setAttribute('draggable', true)
-        newDiv.name = 'guide'
+        newDiv.setAttribute('name', 'guide')
         newDiv.style.backgroundColor = toolDB.toolList[number].toolcolor
         info_plannerRightBottom.appendChild(newDiv)
+        console.log(newDiv)
+        console.log(draggables)
     }
 }
 
 
 
 
-
-
-draggables.forEach(draggable => {
+for (let draggable of draggables) {
     draggable.addEventListener('dragstart', () => {
         draggable.classList.add('dragging')
     })
     draggable.addEventListener('dragend', () => {
         draggable.classList.remove('dragging')
     })
-})
-nests.forEach(nest => {
+}
+
+
+for (let nest of nests) {
+    console.log(nest)
+    console.log(nests)
     nest.addEventListener('dragover', e => {
         e.preventDefault()
+
         const afterElement = getDragAfterElement(nest, e.clientX)
-        const draggable = document.querySelector('.dragging')
+        const draggable = document.getElementsByClassName('.dragging')
+
         if (afterElement == null) {
-            nest.appendChild(draggable)
+            nest.parentNode.appendChild(draggable)
         } else {
-            nest.insertBefore(draggable, afterElement)
+            nest.parentNode.insertBefore(draggable, afterElement)
         }
     })
-})
+}
+
 function getDragAfterElement(nest, x) {
     const draggableElements = [...nest.querySelectorAll('.draggable:not(.dragging)')]
     return draggableElements.reduce((closest, child) => {
@@ -123,3 +133,39 @@ function getDragAfterElement(nest, x) {
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element
 }
+
+
+/* draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', () => {
+        draggable.classList.add('dragging')
+    })
+    draggable.addEventListener('dragend', () => {
+        draggable.classList.remove('dragging')
+    })
+})
+
+nests.forEach(nest => {
+    nest.addEventListener('dragover', e => {
+        e.preventDefault()
+        const afterElement = getDragAfterElement(nest, e.clientX)
+        const draggable = document.querySelector('.dragging')
+        if (afterElement == null) {
+            nest.appendChild(draggable)
+        } else {
+            nest.insertBefore(draggable, afterElement)
+        }
+    })
+})
+
+function getDragAfterElement(nest, x) {
+    const draggableElements = [...nest.querySelectorAll('.draggable:not(.dragging)')]
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect()
+        const offset = x - box.left - box.width / 2
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child }
+        } else {
+            return closest
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element
+} */
