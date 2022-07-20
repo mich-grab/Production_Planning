@@ -135,7 +135,7 @@ body {
       display: inline-block;
       background-color: var(--secondary-color);
     }
-      .planner__right__nest{
+      .planner__right__nest_1, .planner__right__nest_2, .planner__right__nest_3, .planner__right__nest_4{
         display: inline-block;
         width: 50000px;
         display: flex;
@@ -144,7 +144,6 @@ body {
         background-color: var(--secondary-color);
         border: 1px solid var(--primary-color);
         height: 100px;
-  
       }
 
       .process {
