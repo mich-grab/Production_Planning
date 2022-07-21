@@ -1,11 +1,20 @@
 import toolDB from './database.json' assert {type: 'json'}
 
 let draggables = document.getElementsByName('guide')
-const nests = document.getElementsByClassName('planner__right__nest')
-/* const draggables = document.querySelectorAll('.draggable')
-const nests = document.querySelectorAll('.planner__right__nest') */
-/* let draggables = document.getElementsByClassName('draggable');
-let nests = document.getElementsByClassName('planner__right__nest') */
+const nest_1 = document.getElementById('planner__right__nest_1')
+const nest_2 = document.getElementById('planner__right__nest_2')
+const nest_3 = document.getElementById('planner__right__nest_3')
+const nest_4 = document.getElementById('planner__right__nest_4')
+let draggables_nest_1 = document.getElementById('planner__right__nest_1').getElementsByClassName('process')
+let draggables_nest_2 = document.getElementById('planner__right__nest_2').getElementsByClassName('process')
+let draggables_nest_3 = document.getElementById('planner__right__nest_3').getElementsByClassName('process')
+let draggables_nest_4 = document.getElementById('planner__right__nest_4').getElementsByClassName('process')
+
+let draggables_nest_1_Arr = Array.prototype.slice.call(draggables_nest_1)
+let draggables_nest_2_Arr = Array.prototype.slice.call(draggables_nest_2)
+let draggables_nest_3_Arr = Array.prototype.slice.call(draggables_nest_3)
+let draggables_nest_4_Arr = Array.prototype.slice.call(draggables_nest_4)
+
 
 const toolList = document.querySelector('.toolList')
 
@@ -58,6 +67,7 @@ tools.forEach(tool => {
 })
 
 function fillToolInfo(toolFullName) {
+
     for (let i = 0; i < toolDB.toolList.length; i++) {
         if (toolFullName == toolListArray[i]) {
             info_toolIDs.innerText = toolDB.toolList[i].id
@@ -75,8 +85,8 @@ function fillToolInfo(toolFullName) {
 }
 
 
-
 function createGuides(number) {
+    draggables_nest_4_Arr = []
 
     for (let i = 0; i < toolDB.toolList[number].guideList.length; i++) {
         let newDiv = document.createElement('div')
@@ -85,26 +95,46 @@ function createGuides(number) {
         newDiv.setAttribute('draggable', true)
         newDiv.setAttribute('name', 'guide')
         newDiv.style.backgroundColor = toolDB.toolList[number].toolcolor
-        info_plannerRightBottom.appendChild(newDiv)
-        console.log(newDiv)
-        console.log(draggables)
+
+        newDiv.innerText = toolDB.toolList[number].guideList[i].guide
+
+        draggables_nest_4_Arr.push(newDiv)
     }
+
+    refreshNest(nest_4, draggables_nest_4_Arr)
 }
 
 
+function refreshNest(nest, divArray) {
+
+    nest.innerHTML = ""
+    let DivString = ''
+    for (let i = 0; i < divArray.length; i++) {
+        nest.appendChild(divArray[i])
+    }
+}
+/* console.log(draggablesArr)
+console.log(nestsArr)
+
+draggablesArr.push()
 
 
-for (let draggable of draggables) {
+console.log(draggablesArr)
+console.log(nestsArr) */
+
+/* console.log(draggablesArr.at(1)) */
+
+/* for (let draggable of draggables) {
     draggable.addEventListener('dragstart', () => {
         draggable.classList.add('dragging')
     })
     draggable.addEventListener('dragend', () => {
         draggable.classList.remove('dragging')
     })
-}
+} */
 
 
-for (let nest of nests) {
+/* for (let nest of nests) {
     console.log(nest)
     console.log(nests)
     nest.addEventListener('dragover', e => {
@@ -114,9 +144,9 @@ for (let nest of nests) {
         const draggable = document.getElementsByClassName('.dragging')
 
         if (afterElement == null) {
-            nest.parentNode.appendChild(draggable)
+            nest.push(draggable)
         } else {
-            nest.parentNode.insertBefore(draggable, afterElement)
+            nest.push(draggable, afterElement)
         }
     })
 }
@@ -132,7 +162,7 @@ function getDragAfterElement(nest, x) {
             return closest
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element
-}
+} */
 
 
 /* draggables.forEach(draggable => {
