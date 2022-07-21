@@ -7,6 +7,8 @@
         "guideList": [
             {"guide": "G_U1_Z1"},
             {"guide": "G_U2_Z1"},
+            {"guide": "G_U1_Z1"},
+            {"guide": "G_U2_Z1"},
             {"guide": "S_U3_Z1"}
         ]
     },
@@ -18,6 +20,7 @@
         "guideList": [
             {"guide": "G_U4_Z1"},
             {"guide": "G_U6_Z1"},
+            {"guide": "G_U6_Z1"},
             {"guide": "S_U7_Z1"}
         ]
     },
@@ -28,7 +31,6 @@
         "toolcolor": "#e9c46a",
         "guideList": [
             {"guide": "G_U8_Z1"},
-            {"guide": "G_U9_Z1"},
             {"guide": "S_U11_Z1"}
         ]
     },
@@ -38,6 +40,8 @@
         "toolName": "FOOTWELL",
         "toolcolor": "#f4a261",
         "guideList": [
+            {"guide": "G_U2_Z1"},
+            {"guide": "G_U7_Z1"},
             {"guide": "G_U2_Z1"},
             {"guide": "G_U7_Z1"},
             {"guide": "S_U4_Z1"}
