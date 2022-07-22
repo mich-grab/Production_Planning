@@ -24,10 +24,15 @@ const info_toolNumbers = document.getElementById('tool_number')
 const info_toolGuidelist = document.getElementById('tool_guideList')
 const info_plannerRightBottom = document.querySelector('.planner__right__bottom')
 
+
+/*  Creates list of tools based on json file */
 let tools = []
 let toolListArray = []
 
+createListOfTools()
+
 function createListOfTools() {
+
 
     for (let i = 0; i < toolDB.toolList.length; i++) {
 
@@ -40,17 +45,6 @@ function createListOfTools() {
         tools = document.querySelectorAll('.tool')
     }
 }
-createListOfTools()
-
-/* console.log(toolListArray)
-console.log(toolList)
-let newArray = [...toolList.children]
-console.log(toolList)
-console.log(newArray)
- */
-
-
-
 
 tools.forEach(tool => {
 
@@ -91,14 +85,18 @@ function createGuides(number) {
     for (let i = 0; i < toolDB.toolList[number].guideList.length; i++) {
         let newDiv = document.createElement('div')
         newDiv.innerHTML = `${toolDB.toolList[number].guideList[i]}`
-        newDiv.classList.add('process', 'draggable', 'red')
-        newDiv.setAttribute('draggable', true)
-        newDiv.setAttribute('name', 'guide')
+        newDiv.classList.add("process", "draggable")
+        newDiv.setAttribute("draggable", "true")
+        newDiv.setAttribute("name", "guide")
         newDiv.style.backgroundColor = toolDB.toolList[number].toolcolor
 
         newDiv.innerText = toolDB.toolList[number].guideList[i].guide
 
         draggables_nest_4_Arr.push(newDiv)
+
+        newDiv.addEventListener('dragstart', dragStart)
+        newDiv.addEventListener('dragend', dragEnd)
+
     }
 
     refreshNest(nest_4, draggables_nest_4_Arr)
@@ -108,21 +106,37 @@ function createGuides(number) {
 function refreshNest(nest, divArray) {
 
     nest.innerHTML = ""
-    let DivString = ''
     for (let i = 0; i < divArray.length; i++) {
         nest.appendChild(divArray[i])
     }
+    draggables = document.getElementsByName('guide')
 }
-/* console.log(draggablesArr)
-console.log(nestsArr)
-
-draggablesArr.push()
 
 
-console.log(draggablesArr)
-console.log(nestsArr) */
+let draggableTodo = null;
 
-/* console.log(draggablesArr.at(1)) */
+function dragStart() {
+    draggableTodo = this;
+    draggableTodo.classList.add('dragging')
+    console.log(draggableTodo);
+}
+function dragEnd() {
+    draggableTodo.classList.remove('dragging')
+    draggableTodo = null;
+}
+
+draggables.forEach((draggable) => {
+    draggable.addEventListener('dragstart', dragStart)
+    draggable.addEventListener('dragend', dragEnd)
+})
+
+
+
+
+
+
+
+/* #####################################################################
 
 /* for (let draggable of draggables) {
     draggable.addEventListener('dragstart', () => {
@@ -164,6 +178,8 @@ function getDragAfterElement(nest, x) {
     }, { offset: Number.NEGATIVE_INFINITY }).element
 } */
 
+
+/* #####################################################################
 
 /* draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
