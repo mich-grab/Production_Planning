@@ -1,10 +1,21 @@
 import toolDB from './database.json' assert {type: 'json'}
 
 let draggables = document.getElementsByName('guide')
-const nest_1 = document.getElementById('planner__right__nest_1')
-const nest_2 = document.getElementById('planner__right__nest_2')
-const nest_3 = document.getElementById('planner__right__nest_3')
-const nest_4 = document.getElementById('planner__right__nest_4')
+let nest_1 = document.getElementsByClassName('planner__right__nest_1')
+let nest_2 = document.getElementsByClassName('planner__right__nest_2')
+let nest_3 = document.getElementsByClassName('planner__right__nest_3')
+let nest_4 = document.getElementsByClassName('planner__right__nest_4')
+let best_4_a = document.getElementById('planner__right__nest_4')
+
+
+let nest_1_Arr = Array.from(nest_1)
+let nest_2_Arr = Array.from(nest_2)
+let nest_3_Arr = Array.from(nest_3)
+let nest_4_Arr = Array.from(nest_4)
+
+let nests = nest_1_Arr.concat(nest_2_Arr, nest_3_Arr, nest_4_Arr)
+
+
 let draggables_nest_1 = document.getElementById('planner__right__nest_1').getElementsByClassName('process')
 let draggables_nest_2 = document.getElementById('planner__right__nest_2').getElementsByClassName('process')
 let draggables_nest_3 = document.getElementById('planner__right__nest_3').getElementsByClassName('process')
@@ -14,7 +25,6 @@ let draggables_nest_1_Arr = Array.prototype.slice.call(draggables_nest_1)
 let draggables_nest_2_Arr = Array.prototype.slice.call(draggables_nest_2)
 let draggables_nest_3_Arr = Array.prototype.slice.call(draggables_nest_3)
 let draggables_nest_4_Arr = Array.prototype.slice.call(draggables_nest_4)
-
 
 const toolList = document.querySelector('.toolList')
 
@@ -99,7 +109,7 @@ function createGuides(number) {
 
     }
 
-    refreshNest(nest_4, draggables_nest_4_Arr)
+    refreshNest(best_4_a, draggables_nest_4_Arr)
 }
 
 
@@ -108,8 +118,9 @@ function refreshNest(nest, divArray) {
     nest.innerHTML = ""
     for (let i = 0; i < divArray.length; i++) {
         nest.appendChild(divArray[i])
+        console.log(nest_4)
     }
-    draggables = document.getElementsByName('guide')
+
 }
 
 
@@ -132,6 +143,32 @@ draggables.forEach((draggable) => {
 
 
 
+
+nests.forEach(nest => {
+    nest.addEventListener('dragover', e => {
+        e.preventDefault()
+        const afterElement = getDragAfterElement(nest, e.clientX)
+        const draggable = document.querySelector('.dragging')
+        if (afterElement == null) {
+            nest.appendChild(draggable)
+        } else {
+            nest.insertBefore(draggable, afterElement)
+        }
+    })
+})
+
+function getDragAfterElement(nest, x) {
+    const draggableElements = [...nest.querySelectorAll('.draggable:not(.dragging)')]
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect()
+        const offset = x - box.left - box.width / 2
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child }
+        } else {
+            return closest
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element
+}
 
 
 
