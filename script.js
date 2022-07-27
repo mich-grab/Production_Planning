@@ -5,7 +5,10 @@ let nest_1 = document.getElementsByClassName('planner__right__nest_1')
 let nest_2 = document.getElementsByClassName('planner__right__nest_2')
 let nest_3 = document.getElementsByClassName('planner__right__nest_3')
 let nest_4 = document.getElementsByClassName('planner__right__nest_4')
-let best_4_a = document.getElementById('planner__right__nest_4')
+let nest_1_a = document.getElementById('planner__right__nest_4')
+let nest_2_a = document.getElementById('planner__right__nest_2')
+let nest_3_a = document.getElementById('planner__right__nest_3')
+let nest_4_a = document.getElementById('planner__right__nest_4')
 
 
 let nest_1_Arr = Array.from(nest_1)
@@ -109,7 +112,8 @@ function createGuides(number) {
 
     }
 
-    refreshNest(best_4_a, draggables_nest_4_Arr)
+
+    refreshNest(nest_4_a, draggables_nest_4_Arr)
 }
 
 
@@ -118,7 +122,7 @@ function refreshNest(nest, divArray) {
     nest.innerHTML = ""
     for (let i = 0; i < divArray.length; i++) {
         nest.appendChild(divArray[i])
-        console.log(nest_4)
+
     }
 
 }
@@ -129,7 +133,6 @@ let draggableTodo = null;
 function dragStart() {
     draggableTodo = this;
     draggableTodo.classList.add('dragging')
-    console.log(draggableTodo);
 }
 function dragEnd() {
     draggableTodo.classList.remove('dragging')
@@ -143,15 +146,36 @@ draggables.forEach((draggable) => {
 
 
 
+function removeGuideFromArray(nestArr, position) {
+    for (let i = 0; i < nestArr.length; i++) {
+        if (position == i) {
+            nestArr.splice(position, 1)
+        }
+    }
+}
+
+function addGuideToArray(nestArr, position, guide) {
+    for (let i = 0; i < nestArr.length; i++) {
+        if (position == i) {
+            nestArr.splice(position, 0, guide)
+        }
+    }
+}
+
 
 nests.forEach(nest => {
     nest.addEventListener('dragover', e => {
         e.preventDefault()
+        console.log(draggables_nest_1_Arr.length)
+
         const afterElement = getDragAfterElement(nest, e.clientX)
         const draggable = document.querySelector('.dragging')
         if (afterElement == null) {
             nest.appendChild(draggable)
+            /*             addGuideToArray(nest, nest.length, draggable) */
+
         } else {
+            console.log(nest)
             nest.insertBefore(draggable, afterElement)
         }
     })
