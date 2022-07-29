@@ -41,7 +41,7 @@ const info_toolNumbers = document.getElementById('tool_number')
 const info_toolGuidelist = document.getElementById('tool_guideList')
 const info_plannerRightBottom = document.querySelector('.planner__right__bottom')
 
-
+/* 
 /*  Creates list of tools based on json file */
 let tools = []
 let toolListArray = []
@@ -77,6 +77,22 @@ tools.forEach(tool => {
 
 })
 
+/* console.log(toolDB.toolList[0].guideList)
+
+
+var ElementList = { "guide": "G_U6_Z2" }
+
+
+toolDB.toolList[0].guideList.push(ElementList)
+
+console.log(toolDB.toolList[0].guideList) */
+
+delete toolDB.toolList[0].guideList[1]
+
+console.log(toolDB.toolList[0].guideList)
+
+
+
 function fillToolInfo(toolFullName) {
 
     for (let i = 0; i < toolDB.toolList.length; i++) {
@@ -90,11 +106,11 @@ function fillToolInfo(toolFullName) {
             }
             info_toolGuidelist.innerText = guides_list
 
-            createGuides(i, draggables_nest_4_Arr)
+            /* createGuides(i, draggables_nest_4_Arr) */
         }
     }
 }
-
+/*
 
 function createGuides(number, array) {
     array = []
@@ -121,7 +137,7 @@ function createGuides(number, array) {
 
     refreshNest(nest_1_a, array)
 
-    /* refreshNestArr(draggables_nest_2_Arr, draggables_nest_4_Arr) */
+    /* refreshNestArr(draggables_nest_2_Arr, draggables_nest_4_Arr) 
 
 }
 
@@ -132,9 +148,9 @@ function createGuides(number, array) {
 
     }
 } */
-
+/* 
 function refreshNest(nest, divArray) {
-    /*     nest.innerHTML = "" */
+    /*     nest.innerHTML = "" 
     for (let i = 0; i < divArray.length; i++) {
         nest.appendChild(divArray[i])
     }
@@ -185,7 +201,7 @@ nests.forEach(nest => {
         const draggable = document.querySelector('.dragging')
         if (afterElement == null) {
             nest.appendChild(draggable)
-            /*             addGuideToArray(nest, nest.length, draggable) */
+            /*             addGuideToArray(nest, nest.length, draggable) 
 
         } else {
             nest.insertBefore(draggable, afterElement)
@@ -204,7 +220,7 @@ function getDragAfterElement(nest, x) {
             return closest
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element
-}
+} */
 
 
 
