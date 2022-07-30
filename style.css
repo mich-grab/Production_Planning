@@ -147,11 +147,24 @@ body {
       }
 
       .process {
-  
+
         width: 200px;
         height: 100px;
         background-color: #c8ff00;
         border: 1px solid var(--primary-color);
+        display: flex;
+        flex-direction: column;
+
+      }
+
+      .guide_icon_delete {
+        position: relative;
+        text-align: right;
+        color: var(--secondary-color);
+      }
+
+      .guide_icon_delete:hover {
+        color: var(--tertiary-color);
       }
 
       .red{
