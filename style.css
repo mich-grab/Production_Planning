@@ -68,6 +68,22 @@ body {
           justify-content: space-between;
       }
 
+  .add{
+    cursor: pointer;
+  }
+
+  .remove{
+    cursor: pointer;
+  }
+
+  .token{
+    cursor: pointer;
+  }
+
+  .refresh{
+    cursor: pointer;
+  }
+
   .container__planner{
       height: 100%;
       display: flex;
@@ -118,14 +134,46 @@ body {
     overflow-y: hidden; 
   }
 
+    .planner__right__calendar{
+      height: 100px;
+      background-color: var(--tertiary-color);
+    }
+
     .planner__right__top{
       height: 500px;
       overflow-x: scroll;
 
     }
 
+
+    .planner__right__planner{
+      display: flex;
+      flex-direction: row;
+    }
+    .planner__right__planner_left{
+      width: 150px;
+      background-color: #ffffff;
+    }
+
+     .machine{
+      width: 150px;
+      height: 100px;
+     }
+
+     .machine_img{
+      width: 150px;
+      height: 80px;
+      object-fit: cover;
+     }
+
+
+    .planner__right__planner_right{
+      width: 300px;
+    }
+  
+
     .planner__right__nest__container{
-      margin: 10px;
+      /* margin: 10px; */
       box-shadow: 0 0 5px var(--primary-color);
       width: 50000px;
       height: 400px;
